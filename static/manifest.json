@@ -1,0 +1,11 @@
+{
+  "name": "Happyshit",
+  "version": "1.0",
+  "description": "Happyshit!",
+  "permissions": ["storage"],
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["browser-polyfill.js", "background.js"],
+    "persistent": false
+  }
+}
