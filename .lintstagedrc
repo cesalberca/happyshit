@@ -5,7 +5,7 @@
   "linters": {
     "*.{js,ts,tsx,json,css,md}": [
       "prettier --write",
-      "tslint --fix --project tsconfig.json",
+      "yarn type",
       "git add"
     ]
   }
