@@ -4,14 +4,20 @@
   "private": true,
   "license": "private",
   "scripts": {
-    "dev": "yarn clean && parcel background.ts",
-    "build": "yarn clean && yarn static && parcel build src/background.ts",
+    "dev": "yarn clean && yarn dev:background && yarn dev:popup",
+    "dev:background": "parcel watch src/background.ts",
+    "dev:popup": "parcel watch src/popup.tsx --public-url='/'",
+    "build": "yarn clean && yarn static && yarn build:background && yarn build:popup",
+    "build:background": "parcel build src/background.ts",
+    "build:popup": "parcel build src/App.tsx --public-url='/'",
     "lint": "tslint -p .",
     "clean": "rm -rf dist",
     "static": "cp -r static/ dist/ && cp -r node_modules/webextension-polyfill/dist/browser-polyfill.js dist/browser-polyfill.js"
   },
   "devDependencies": {
     "@types/node": "10.12.0",
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "16.0.9",
     "husky": "1.1.2",
     "lint-staged": "7.3.0",
     "parcel-bundler": "1.10.3",
@@ -27,11 +33,8 @@
       "post-commit": "git update-index -g"
     }
   },
-  "lint-staged": {
-    "*.{js,ts,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0"
+  }
 }
