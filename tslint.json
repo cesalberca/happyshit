@@ -2,7 +2,9 @@
   "defaultSeverity": "error",
   "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rules": {
-    "no-console": true
+    "no-console": true,
+    "no-namespace": false,
+    "interface-name": false
   },
   "rulesDirectory": []
 }

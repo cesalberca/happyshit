@@ -16,7 +16,7 @@
     "compile": "tsc --noEmit",
     "clean": "rm -rf dist",
     "static": "cp -r static/ dist/ && cp -r node_modules/webextension-polyfill/dist/browser-polyfill.js dist/browser-polyfill.js",
-    "test": "jest",
+    "test": "jest --coverage",
     "prepush": "yarn lint:ci && yarn type && yarn compile && yarn test"
   },
   "devDependencies": {
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "react": "16.7.0-alpha.0",
-    "react-dom": "16.7.0-alpha.0"
+    "react-dom": "16.7.0-alpha.0",
+    "tachyons": "4.11.1"
   }
 }
