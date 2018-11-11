@@ -1,7 +1,7 @@
 import { Singleton, singleton } from '../Singleton.decorator'
 
 describe('Singleton.decorator', () => {
-  it('should return the same object', () => {
+  it('should instantiate the object if there is not an instantiation of the given object', () => {
     @singleton
     class Foo {
       public count = 0
@@ -11,20 +11,19 @@ describe('Singleton.decorator', () => {
     }
 
     const typedInstance = (Foo as unknown) as Singleton<Foo>
-    let instance = typedInstance.getInstance()
-    instance = typedInstance.getInstance()
-    instance = typedInstance.getInstance()
+    const instance = typedInstance.instance
 
     expect(instance.count).toEqual(1)
   })
 
-  it('should throw an error when trying to instantiate a singleton', () => {
+  it('should return the same object', () => {
     @singleton
     class Foo {}
 
-    expect(() => {
-      // tslint:disable-next-line
-      new Foo()
-    }).toThrowError()
+    const typedInstance = (Foo as unknown) as Singleton<Foo>
+    const a = typedInstance.instance
+    const b = typedInstance.instance
+
+    expect(a === b).toBeTruthy()
   })
 })

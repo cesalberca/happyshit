@@ -1,12 +1,12 @@
 export interface Singleton<T> {
-  getInstance: () => T
+  instance: T
 }
 
 export function singleton<T extends { new (...args: any[]): {} }>(
   Class: T
-): T & { getInstance: () => T } {
+): T & Singleton<T> {
   return class extends Class {
-    public static getInstance() {
+    public static get instance() {
       if (!this._instance) {
         this._instance = new this() as T
         return this._instance

@@ -10,7 +10,7 @@ describe('User.assembler', () => {
       id: 0,
     }
 
-    const result = UserAssembler.getInstance().assemble(user)
+    const result = UserAssembler.instance.assemble(user)
 
     const expected: User.AssembledNames = {
       id: 0,
