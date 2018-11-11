@@ -4,7 +4,9 @@
   "rules": {
     "no-console": true,
     "no-namespace": false,
-    "interface-name": false
+    "interface-name": false,
+    "variable-name": false,
+    "object-literal-sort-keys": false
   },
   "rulesDirectory": []
 }

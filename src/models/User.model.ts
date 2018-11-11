@@ -7,4 +7,9 @@ export namespace User {
     name: string
     lastname: Maybe<string>
   }
+
+  export interface AssembledNames {
+    id: Id
+    fullName: string
+  }
 }
