@@ -15,7 +15,8 @@
     {
       "run_at": "document_start",
       "matches": ["https://twitter.com/*"],
-      "js": ["browser-polyfill.min.js", "content.js"]
+      "js": ["browser-polyfill.js", "content.js"]
     }
-  ]
+  ],
+  "content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'"
 }

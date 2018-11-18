@@ -4,7 +4,7 @@ export class Shit {
   private readonly _id: Id
   private readonly _date: Date
 
-  constructor(id: Id, date: Date) {
+  public constructor(id: Id, date: Date) {
     this._id = id
     this._date = date
   }

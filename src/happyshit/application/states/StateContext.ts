@@ -10,7 +10,7 @@ export class StateContext {
 
   private _state: IState
 
-  constructor() {
+  public constructor() {
     this._state = new LoadingState(this)
   }
 

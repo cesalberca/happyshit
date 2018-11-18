@@ -4,7 +4,7 @@ interface Loggable {
 }
 
 export class Logger implements Loggable {
-  constructor(private readonly console: Console) {
+  public constructor(private readonly console: Console) {
     this.console = console
   }
 

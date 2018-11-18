@@ -2,7 +2,7 @@ import { IState } from './IState'
 import { StateContext } from './StateContext'
 
 export class LoadingState implements IState {
-  constructor(private readonly context: StateContext) {}
+  public constructor(private readonly context: StateContext) {}
 
   public errorState() {}
 

@@ -7,7 +7,7 @@ export type Connector = (
 ) => Promise<Response>
 
 export class Http<T, U> implements IHttp<T, U> {
-  constructor(private readonly connector: Connector) {
+  public constructor(private readonly connector: Connector) {
     this.connector = connector
   }
 
