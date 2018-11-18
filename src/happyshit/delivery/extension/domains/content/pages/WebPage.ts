@@ -1,4 +1,4 @@
-import { Time, Timer } from '../../../../../../arch/Timer'
+import { Time, Timer } from '../../../../../../arch/timer'
 
 export abstract class WebPage {
   protected constructor(private readonly window: Window) {

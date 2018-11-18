@@ -1,25 +1,6 @@
-import { Maybe } from './domain/Maybe'
-
-export class Time {
-  public get seconds(): number {
-    return this._seconds
-  }
-
-  public static seconds(seconds: number): Time {
-    return new Time(seconds)
-  }
-
-  private readonly _seconds: number
-
-  public constructor(seconds: number) {
-    this._seconds = seconds
-  }
-}
-
-export interface Clock {
-  start: any
-  stop: (id: number) => void
-}
+import { Maybe } from '../domain/Maybe'
+import { Clock } from './Clock'
+import { Time } from './Time'
 
 export class Timer {
   private _time: Time = new Time(0)
