@@ -1,4 +1,4 @@
-import { Maybe } from '../monads/Maybe'
+import { Maybe } from '../../../arch/domain/Maybe'
 import { Id } from '../types/main.type'
 
 export namespace User {

@@ -1,5 +1,5 @@
+import { User } from '../../../domain/models/User.model'
 import { Http } from '../../http/Http'
-import { User } from '../../models/User.model'
 import { UserService } from '../User.service'
 
 jest.mock('../../http/Http')

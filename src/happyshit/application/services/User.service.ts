@@ -1,5 +1,5 @@
+import { User } from '../../domain/models/User.model'
 import { Http } from '../http/Http'
-import { User } from '../models/User.model'
 import { IUserService } from './IUser.service'
 
 export class UserService implements IUserService {

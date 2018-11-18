@@ -1,4 +1,4 @@
-import { User } from '../models/User.model'
+import { User } from '../../domain/models/User.model'
 
 export interface IUserService {
   getAllUsers: () => Promise<User.Base[]>

@@ -1,5 +1,5 @@
-import { User } from '../../models/User.model'
-import { Maybe } from '../../monads/Maybe'
+import { User } from '../../../domain/models/User.model'
+import { Maybe } from '../../../../arch/domain/Maybe'
 import { UserAssembler } from '../User.assembler'
 
 describe('User.assembler', () => {

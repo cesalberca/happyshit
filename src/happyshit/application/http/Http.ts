@@ -1,4 +1,4 @@
-import { Id } from '../types/main.type'
+import { Id } from '../../domain/types/main.type'
 import { IHttp } from './IHttp'
 
 export type Connector = (

@@ -27,7 +27,6 @@ export class StateContext {
   }
 
   public set state(newState: IState) {
-    console.log({ newState })
     this._state = newState
   }
 

@@ -1,5 +1,8 @@
-import { singleton, Singleton } from '../decorators/Singleton.decorator'
-import { User } from '../models/User.model'
+import {
+  singleton,
+  Singleton,
+} from '../../../arch/domain/decorators/Singleton.decorator'
+import { User } from '../../domain/models/User.model'
 import { IAssembler } from './IAssembler'
 
 @singleton
