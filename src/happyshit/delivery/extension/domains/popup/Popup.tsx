@@ -2,18 +2,14 @@ import React, { useState } from 'react'
 import { StateContext } from '../../../../application/states/StateContext'
 
 export function Popup() {
-  const _stateContext = new StateContext()
-  const [stateContext, setStateContext] = useState(_stateContext)
+  const [stateContext, setStateContext] = useState(StateContext.instance)
 
   return (
     <div>
-      <p>IsLoaded: {stateContext.isLoaded ? 'true' : 'false'}</p>
-      <p>IsLoading: {stateContext.isLoading ? 'true' : 'false'}</p>
-      <p>IsError: {stateContext.isError ? 'true' : 'false'}</p>
       <button
         onClick={() => {
-          _stateContext.load()
-          setStateContext(_stateContext)
+          stateContext.load()
+          setStateContext(stateContext)
         }}
       >
         Load
@@ -21,8 +17,8 @@ export function Popup() {
 
       <button
         onClick={() => {
-          _stateContext.loading()
-          setStateContext(_stateContext)
+          stateContext.loading()
+          setStateContext(stateContext)
         }}
       >
         Unload
@@ -30,8 +26,8 @@ export function Popup() {
 
       <button
         onClick={() => {
-          _stateContext.error()
-          setStateContext(_stateContext)
+          stateContext.error()
+          setStateContext(stateContext)
         }}
       >
         Error

@@ -1,12 +1,7 @@
-import {
-  singleton,
-  Singleton,
-} from '../../../arch/domain/decorators/Singleton.decorator'
 import { User } from '../../domain/models/User.model'
 import { IAssembler } from './IAssembler'
 
-@singleton
-class UserAssemblerSingleton
+export class UserAssembler
   implements IAssembler<User.Base, User.AssembledNames> {
   public assemble(original: User.Base): User.AssembledNames {
     return {
@@ -19,7 +14,3 @@ class UserAssemblerSingleton
     return originals.map(this.assemble)
   }
 }
-
-export const UserAssembler = (UserAssemblerSingleton as unknown) as Singleton<
-  UserAssemblerSingleton
->

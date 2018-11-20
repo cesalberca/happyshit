@@ -11,7 +11,7 @@ export class UserService implements IUserService {
     this.url = url
   }
 
-  public getAllUsers(): Promise<User.Base[]> {
-    return this.http.get(this.url)
+  public async getAllUsers(): Promise<User.Base[]> {
+    return await this.http.get(this.url)
   }
 }

@@ -1,7 +1,7 @@
 import { Time, Timer } from '../../../../../../arch/timer'
 
 export abstract class WebPage {
-  protected constructor(private readonly window: Window) {
+  protected constructor(protected readonly window: Window) {
     this.window = window
   }
 

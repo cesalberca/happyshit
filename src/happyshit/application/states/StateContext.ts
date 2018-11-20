@@ -1,31 +1,10 @@
+import { Maybe } from '../../../arch/domain/Maybe'
 import { ErrorState } from './Error.state'
 import { IState } from './IState'
 import { LoadedState } from './Loaded.state'
 import { LoadingState } from './Loading.state'
 
 export class StateContext {
-  private readonly _loadedState = new LoadedState(this)
-  private readonly _loadingState = new LoadingState(this)
-  private readonly _errorState = new ErrorState(this)
-
-  private _state: IState
-
-  public constructor() {
-    this._state = new LoadingState(this)
-  }
-
-  public get loadedState(): LoadedState {
-    return this._loadedState
-  }
-
-  public get loadingState(): LoadingState {
-    return this._loadingState
-  }
-
-  public get errorState(): ErrorState {
-    return this._errorState
-  }
-
   public set state(newState: IState) {
     this._state = newState
   }
@@ -34,17 +13,33 @@ export class StateContext {
     return this._state
   }
 
-  public get isLoading() {
-    return this._state instanceof LoadingState
+  public static get instance(): StateContext {
+    if (!this._instance) {
+      this._instance = Maybe.fromValue(new this())
+    }
+    return this._instance.getOrElse(new this())
   }
 
-  public get isLoaded() {
-    return this._state instanceof LoadedState
+  private static _instance: Maybe<StateContext> = Maybe.none()
+  private readonly _loadedState = new LoadedState(this)
+  private readonly _loadingState = new LoadingState(this)
+  private readonly _errorState = new ErrorState(this)
+
+  get loadedState(): LoadedState {
+    return this._loadedState
   }
 
-  public get isError() {
-    return this._state instanceof ErrorState
+  get loadingState(): LoadingState {
+    return this._loadingState
   }
+
+  get errorState(): ErrorState {
+    return this._errorState
+  }
+
+  private _state: IState = this._loadingState
+
+  private constructor() {}
 
   public load() {
     this._state.loadedState()
@@ -56,21 +51,5 @@ export class StateContext {
 
   public error() {
     this._state.errorState()
-  }
-
-  public enableSpinners() {
-    console.log('enabling spinners')
-  }
-
-  public disableSpinners() {
-    console.log('disabling spinners')
-  }
-
-  public clearErrors() {
-    console.log('clearing errors')
-  }
-
-  public showErrors() {
-    console.log('some error occurred')
   }
 }

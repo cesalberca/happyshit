@@ -1,5 +1,5 @@
-import { User } from '../../../domain/models/User.model'
 import { Maybe } from '../../../../arch/domain/Maybe'
+import { User } from '../../../domain/models/User.model'
 import { UserAssembler } from '../User.assembler'
 
 describe('User.assembler', () => {
@@ -10,7 +10,7 @@ describe('User.assembler', () => {
       id: 0,
     }
 
-    const result = UserAssembler.instance.assemble(user)
+    const result = new UserAssembler().assemble(user)
 
     const expected: User.AssembledNames = {
       id: 0,

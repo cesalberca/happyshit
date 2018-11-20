@@ -12,11 +12,13 @@ describe('Twitter.page', () => {
     }
 
     const selector = new WebSelector(document as Document)
-    twitterPage = new TwitterPage(selector)
+    twitterPage = new TwitterPage((jest.fn() as unknown) as Window, selector)
   })
 
-  it('should select all footers', () => {
-    twitterPage.getAllFooters()
+  it('should select all footers', async () => {
+    expect.assertions(1)
+    twitterPage.load = jest.fn()
+    await twitterPage.getAllFooters()
     expect(document.querySelectorAll).toHaveBeenCalledWith(
       '.stream-item-footer .ProfileTweet-actionList'
     )
