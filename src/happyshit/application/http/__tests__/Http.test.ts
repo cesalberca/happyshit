@@ -1,10 +1,11 @@
+import { connectorMock } from '../__mocks__/Connector'
 import { Connector, Http } from '../Http'
 
 describe('Http', () => {
   let connector: Connector
 
   beforeEach(() => {
-    connector = jest.fn(() => ({ json: () => jest.fn() }))
+    connector = connectorMock
   })
 
   it('should get a resource', async () => {
@@ -15,8 +16,8 @@ describe('Http', () => {
 
   it('should get a resource by id', async () => {
     const http = new Http(connector)
-    await http.get('test', 1)
-    expect(connector).toHaveBeenCalledWith('test/1')
+    await http.get('test')
+    expect(connector).toHaveBeenCalledWith('test')
   })
 
   it('should post a request', async () => {
@@ -30,8 +31,8 @@ describe('Http', () => {
 
   it('should put a request', async () => {
     const http = new Http(connector)
-    await http.put('test', 1, { a: 1 })
-    expect(connector).toHaveBeenCalledWith('test/1', {
+    await http.put('test', { a: 1 })
+    expect(connector).toHaveBeenCalledWith('test', {
       body: '{"a":1}',
       method: 'PUT',
     })

@@ -1,4 +1,3 @@
-import { Id } from '../../domain/types/main.type'
 import { IHttp } from './IHttp'
 
 export type Connector = (
@@ -11,8 +10,8 @@ export class Http<T, U> implements IHttp<T, U> {
     this.connector = connector
   }
 
-  public async get(url: string, id?: Id) {
-    const response = await this.connector(id ? url + '/' + id : url)
+  public async get(url: string) {
+    const response = await this.connector(url)
     return response.json()
   }
 
@@ -26,8 +25,8 @@ export class Http<T, U> implements IHttp<T, U> {
     }
   }
 
-  public async put(url: string, id: Http.Id, payload: U) {
-    const response = await this.connector(url + '/' + id, {
+  public async put(url: string, payload: U) {
+    const response = await this.connector(url, {
       body: JSON.stringify(payload),
       method: 'PUT',
     })

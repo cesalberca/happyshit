@@ -6,7 +6,9 @@ export class ErrorState implements IState {
     this.context = context
   }
 
-  public errorState() {}
+  public errorState() {
+    this.context.state = this.context.loadedState
+  }
 
   public loadingState() {}
 
