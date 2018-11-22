@@ -1,4 +1,4 @@
-import { Maybe } from '../domain/Maybe'
+import { Maybe } from '../Maybe'
 import { Clock } from './Clock'
 import { Time } from './Time'
 

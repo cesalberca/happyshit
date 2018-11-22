@@ -1,4 +1,6 @@
-import { Clock, Time, Timer } from '../'
+import { Clock } from '../Clock'
+import { Time } from '../Time'
+import { Timer } from '../Timer'
 
 describe('Timer', () => {
   let timer: Timer

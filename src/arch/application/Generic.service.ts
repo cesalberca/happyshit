@@ -1,8 +1,8 @@
 import { inject } from 'inversify'
 import { Http } from '../../happyshit/application/http/Http'
 import { HttpModel } from '../../happyshit/application/http/Http.model'
+import { SERVICE_ID } from '../../happyshit/application/serviceId'
 import { Maybe } from '../domain/Maybe'
-import { SERVICE_ID } from '../domain/serviceId'
 import { IService } from './IService'
 
 export abstract class GenericService<T, U> implements IService<T, U> {
@@ -28,10 +28,10 @@ export abstract class GenericService<T, U> implements IService<T, U> {
   }
 
   public async update(id: HttpModel.Id, payload: U): Promise<HttpModel.Response> {
-    return this.http.post(this.getSingleResource(id), payload)
+    return this.http.put(this.getSingleResource(id), payload)
   }
 
   private getSingleResource(id: HttpModel.Id) {
-    return this.url + '/' + id
+    return `${this.url}/${id}`
   }
 }

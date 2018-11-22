@@ -5,4 +5,5 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'text-summary'],
   testMatch: ['<rootDir>/src/(/**/*.test.(ts)|**/__tests__/*.(ts))'],
+  setupFiles: ['./test/setUp.ts'],
 }

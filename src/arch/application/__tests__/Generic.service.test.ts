@@ -1,3 +1,4 @@
+import { httpMock } from '../../../happyshit/application/http/__mocks__/http.mock'
 import { Http } from '../../../happyshit/application/http/Http'
 import { GenericService } from '../Generic.service'
 import { IService } from '../IService'
@@ -10,12 +11,9 @@ describe('Generic.service', () => {
     bar: string
   }
 
-  let httpMock: Http<Foo, Bar>
   let service: IService<Foo, Bar>
 
   beforeEach(() => {
-    httpMock = new Http<Foo, Bar>(jest.fn())
-
     class ConcreteService extends GenericService<Foo, Bar> {
       constructor(http: Http<Foo, Bar>, url: string) {
         super(http, url)
@@ -32,6 +30,24 @@ describe('Generic.service', () => {
   it('should create a resource', async () => {
     expect.assertions(1)
     await service.create(1, { bar: 'bar' })
-    expect(httpMock).toHaveBeenCalledWith('/foo/1')
+    expect(httpMock.post).toHaveBeenCalledWith('foo/1', { bar: 'bar' })
+  })
+
+  it('should get a resource', async () => {
+    expect.assertions(1)
+    await service.findOne(1)
+    expect(httpMock.get).toHaveBeenCalledWith('foo/1')
+  })
+
+  it('should get all resources', async () => {
+    expect.assertions(1)
+    await service.findAll()
+    expect(httpMock.get).toHaveBeenCalledWith('foo')
+  })
+
+  it('should update a resource', async () => {
+    expect.assertions(1)
+    await service.update(1, { bar: 'bar' })
+    expect(httpMock.put).toHaveBeenCalledWith('foo/1', { bar: 'bar' })
   })
 })

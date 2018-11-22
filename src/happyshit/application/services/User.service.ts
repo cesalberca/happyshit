@@ -1,9 +1,9 @@
 import { inject, injectable } from 'inversify'
 import { GenericService } from '../../../arch/application/Generic.service'
-import { SERVICE_ID } from '../../../arch/domain/serviceId'
 import { User } from '../../domain/models/User.model'
 import { Http } from '../http/Http'
 import { HttpModel } from '../http/Http.model'
+import { SERVICE_ID } from '../serviceId'
 import { IUserService } from './IUser.service'
 
 @injectable()
