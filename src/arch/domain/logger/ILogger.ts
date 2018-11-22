@@ -1,5 +1,5 @@
 export type Message = string | number
 
-export interface ILoggable {
+export interface ILogger {
   log: (message: Message) => void
 }

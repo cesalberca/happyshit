@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { container } from '../../deliveryContainer.config'
+import { container } from '../../../../rootContainer'
 import { DELIVERY_SERVICE_ID } from '../../deliveryServiceId'
 import { Icon } from './Icon'
 import { TwitterPage } from './pages/Twitter.page'
