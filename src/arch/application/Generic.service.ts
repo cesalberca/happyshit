@@ -1,13 +1,13 @@
 import { inject } from 'inversify'
 import { Http } from '../../happyshit/application/http/Http'
 import { HttpModel } from '../../happyshit/application/http/Http.model'
-import { SERVICE_ID } from '../../happyshit/application/serviceId'
+import { APPLICATION_SERVICE_ID } from '../../happyshit/application/applicationServiceId'
 import { Maybe } from '../domain/Maybe'
 import { IService } from './IService'
 
 export abstract class GenericService<T, U> implements IService<T, U> {
   protected constructor(
-    @inject(SERVICE_ID.Http) protected readonly http: Http<T, U>,
+    @inject(APPLICATION_SERVICE_ID.Http) protected readonly http: Http<T, U>,
     protected readonly url: HttpModel.Url
   ) {
     this.http = http

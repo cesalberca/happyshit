@@ -1,20 +1,15 @@
-import { Time } from '../../../../../../arch/domain/timer/Time'
-import { Timer } from '../../../../../../arch/domain/timer/Timer'
+import { inject, injectable } from 'inversify'
+import { DELIVERY_SERVICE_ID } from '../../../deliveryServiceId'
 
+@injectable()
 export abstract class WebPage {
-  protected constructor(protected readonly window: Window) {
+  protected constructor(@inject(DELIVERY_SERVICE_ID.Window) protected readonly window: Window) {
     this.window = window
   }
 
   public async load() {
-    return new Promise((resolve, reject) => {
-      this.window.addEventListener('load', async () => {
-        await new Timer({
-          start: window.setInterval,
-          stop: window.clearInterval,
-        })
-          .start()
-          .until(Time.seconds(45), reject)
+    return new Promise(resolve => {
+      this.window.addEventListener('load', () => {
         resolve()
       })
     })

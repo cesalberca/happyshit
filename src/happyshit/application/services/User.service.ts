@@ -3,12 +3,15 @@ import { GenericService } from '../../../arch/application/Generic.service'
 import { User } from '../../domain/models/User.model'
 import { Http } from '../http/Http'
 import { HttpModel } from '../http/Http.model'
-import { SERVICE_ID } from '../serviceId'
+import { APPLICATION_SERVICE_ID } from '../applicationServiceId'
 import { IUserService } from './IUser.service'
 
 @injectable()
 export class UserService extends GenericService<User.Base, Exclude<User.Base, { id: number }>> implements IUserService {
-  public constructor(@inject(SERVICE_ID.Http) protected readonly http: Http, protected readonly url: HttpModel.Url) {
+  public constructor(
+    @inject(APPLICATION_SERVICE_ID.Http) protected readonly http: Http,
+    protected readonly url: HttpModel.Url
+  ) {
     super(http, url)
   }
 
