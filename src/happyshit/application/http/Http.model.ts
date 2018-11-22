@@ -1,7 +1,8 @@
-declare namespace Http {
-  type Id = number
+export namespace HttpModel {
+  export type Id = number
+  export type Url = string
 
-  interface Response {
+  export interface Response {
     status: number
   }
 }

@@ -40,9 +40,7 @@ export class Timer {
   }
 
   private stopTimeIfNeeded() {
-    if (
-      this._time.seconds === this._until.getOrElse(Time.seconds(-1)).seconds
-    ) {
+    if (this._time.seconds === this._until.getOrElse(Time.seconds(-1)).seconds) {
       this.stop()
       this._onTimerRuns.getOrElse(() => {})()
     }

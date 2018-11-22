@@ -1,7 +1,6 @@
-import { connectorMock } from '../../../happyshit/application/http/__mocks__/Connector'
 import { Http } from '../../../happyshit/application/http/Http'
 import { GenericService } from '../Generic.service'
-import { Service } from '../Service'
+import { IService } from '../IService'
 
 describe('Generic.service', () => {
   interface Foo {
@@ -12,10 +11,10 @@ describe('Generic.service', () => {
   }
 
   let httpMock: Http<Foo, Bar>
-  let service: Service<Foo, Bar>
+  let service: IService<Foo, Bar>
 
   beforeEach(() => {
-    httpMock = new Http<Foo, Bar>(connectorMock)
+    httpMock = new Http<Foo, Bar>(jest.fn())
 
     class ConcreteService extends GenericService<Foo, Bar> {
       constructor(http: Http<Foo, Bar>, url: string) {

@@ -2,7 +2,7 @@ import { User } from '../../../domain/models/User.model'
 import { Http } from '../../http/Http'
 import { UserService } from '../User.service'
 
-jest.mock('../../http/Http')
+jest.mock('../../http/HttpModel')
 
 describe('User.service', () => {
   let http: Http<User.Base, unknown>

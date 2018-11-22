@@ -1,9 +1,6 @@
-type Message = string | number
-interface Loggable {
-  log: (message: Message) => void
-}
+import { ILoggable, Message } from './ILoggable'
 
-export class Logger implements Loggable {
+export class Logger implements ILoggable {
   public constructor(private readonly console: Console) {
     this.console = console
   }

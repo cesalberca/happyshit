@@ -22,8 +22,7 @@ describe('maybe', () => {
   })
 
   it('should able to flatMap non-existing values', () => {
-    const returnMaybe = (): Maybe<{ a: Maybe<string> }> =>
-      Maybe.some({ a: Maybe.fromValue('') })
+    const returnMaybe = (): Maybe<{ a: Maybe<string> }> => Maybe.some({ a: Maybe.fromValue('') })
     const result = returnMaybe().flatMap(e => e.a)
     expect(result.getOrElse('test')).toEqual('test')
   })

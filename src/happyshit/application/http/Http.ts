@@ -1,11 +1,10 @@
+import { injectable } from 'inversify'
 import { IHttp } from './IHttp'
 
-export type Connector = (
-  input: RequestInfo,
-  init?: RequestInit
-) => Promise<Response>
+export type Connector = (input: RequestInfo, init?: RequestInit) => Promise<Response>
 
-export class Http<T, U> implements IHttp<T, U> {
+@injectable()
+export class Http<T = {}, U = {}> implements IHttp<T, U> {
   public constructor(private readonly connector: Connector) {
     this.connector = connector
   }

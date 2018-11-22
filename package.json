@@ -48,8 +48,10 @@
     }
   },
   "dependencies": {
+    "inversify": "5.0.1",
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
+    "reflect-metadata": "0.1.12",
     "tachyons": "4.11.1"
   }
 }

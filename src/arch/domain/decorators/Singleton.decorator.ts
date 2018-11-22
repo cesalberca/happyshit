@@ -2,9 +2,7 @@ export interface Singleton<T> {
   instance: T
 }
 
-export function singleton<T extends { new (...args: any[]): {} }>(
-  Class: T
-): T & Singleton<T> {
+export function singleton<T extends { new (...args: any[]): {} }>(Class: T): T & Singleton<T> {
   return class extends Class {
     public static get instance() {
       if (!this._instance) {

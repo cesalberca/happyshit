@@ -19,8 +19,6 @@ describe('Twitter.page', () => {
     expect.assertions(1)
     twitterPage.load = jest.fn()
     await twitterPage.getAllFooters()
-    expect(document.querySelectorAll).toHaveBeenCalledWith(
-      '.stream-item-footer .ProfileTweet-actionList'
-    )
+    expect(document.querySelectorAll).toHaveBeenCalledWith('.stream-item-footer .ProfileTweet-actionList')
   })
 })

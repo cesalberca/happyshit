@@ -1,11 +1,11 @@
-import { connectorMock } from '../__mocks__/Connector'
+import 'reflect-metadata'
 import { Connector, Http } from '../Http'
 
-describe('Http', () => {
+describe('HttpModel', () => {
   let connector: Connector
 
   beforeEach(() => {
-    connector = connectorMock
+    connector = jest.fn(() => ({ json: () => jest.fn() }))
   })
 
   it('should get a resource', async () => {

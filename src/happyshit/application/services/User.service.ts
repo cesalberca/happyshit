@@ -1,14 +1,15 @@
+import { inject, injectable } from 'inversify'
+import { GenericService } from '../../../arch/application/Generic.service'
+import { SERVICE_ID } from '../../../arch/domain/serviceId'
 import { User } from '../../domain/models/User.model'
 import { Http } from '../http/Http'
+import { HttpModel } from '../http/Http.model'
 import { IUserService } from './IUser.service'
 
-export class UserService implements IUserService {
-  public constructor(
-    private readonly http: Http<User.Base, Exclude<User.Base, { id: number }>>,
-    private readonly url: string
-  ) {
-    this.http = http
-    this.url = url
+@injectable()
+export class UserService extends GenericService<User.Base, Exclude<User.Base, { id: number }>> implements IUserService {
+  public constructor(@inject(SERVICE_ID.Http) protected readonly http: Http, protected readonly url: HttpModel.Url) {
+    super(http, url)
   }
 
   public async getAllUsers(): Promise<User.Base[]> {

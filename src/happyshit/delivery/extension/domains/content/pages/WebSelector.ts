@@ -1,7 +1,7 @@
 import { Maybe } from '../../../../../../arch/domain/Maybe'
-import { Selector } from './Selector'
+import { ISelector } from './ISelector'
 
-export class WebSelector implements Selector<Element> {
+export class WebSelector implements ISelector<Element> {
   public constructor(private readonly document: Document) {
     this.document = document
   }

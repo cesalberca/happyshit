@@ -1,19 +1,20 @@
+import { inject } from 'inversify'
 import { Http } from '../../happyshit/application/http/Http'
+import { HttpModel } from '../../happyshit/application/http/Http.model'
 import { Maybe } from '../domain/Maybe'
-import { Service } from './Service'
+import { SERVICE_ID } from '../domain/serviceId'
+import { IService } from './IService'
 
-export type Url = string
-
-export abstract class GenericService<T, U> implements Service<T, U> {
+export abstract class GenericService<T, U> implements IService<T, U> {
   protected constructor(
-    protected readonly http: Http<T, U>,
-    protected readonly url: Url
+    @inject(SERVICE_ID.Http) protected readonly http: Http<T, U>,
+    protected readonly url: HttpModel.Url
   ) {
     this.http = http
     this.url = url
   }
 
-  public async create(id: Http.Id, payload: U): Promise<Http.Response> {
+  public async create(id: HttpModel.Id, payload: U): Promise<HttpModel.Response> {
     return this.http.post(this.getSingleResource(id), payload)
   }
 
@@ -21,16 +22,16 @@ export abstract class GenericService<T, U> implements Service<T, U> {
     return this.http.get(this.url)
   }
 
-  public async findOne(id: Http.Id): Promise<Maybe<T>> {
+  public async findOne(id: HttpModel.Id): Promise<Maybe<T>> {
     const response = await this.http.get(this.getSingleResource(id))
     return Maybe.fromValue(response)
   }
 
-  public async update(id: Http.Id, payload: U): Promise<Http.Response> {
+  public async update(id: HttpModel.Id, payload: U): Promise<HttpModel.Response> {
     return this.http.post(this.getSingleResource(id), payload)
   }
 
-  private getSingleResource(id: Http.Id) {
+  private getSingleResource(id: HttpModel.Id) {
     return this.url + '/' + id
   }
 }
