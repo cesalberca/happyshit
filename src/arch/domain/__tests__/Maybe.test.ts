@@ -11,6 +11,13 @@ describe('maybe', () => {
     expect(maybe.getOrElse('test')).toEqual('test')
   })
 
+  it('should handle a callback as a default value', () => {
+    const mock = jest.fn()
+    const maybe = Maybe.fromValue('')
+    maybe.getOrExecute(mock)
+    expect(mock).toHaveBeenCalled()
+  })
+
   it('should handle nullable values', () => {
     const maybe = Maybe.none()
     expect(maybe.getOrElse('test')).toEqual('test')

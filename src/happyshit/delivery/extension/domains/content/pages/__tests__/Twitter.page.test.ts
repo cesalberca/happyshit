@@ -1,25 +1,22 @@
 import { TwitterPage } from '../Twitter.page'
-import { WebSelector } from '../WebSelector'
+import { container } from '../../../../../../rootContainer'
+import { TYPES } from '../../../../../../types'
+import { selectorMock } from '../__mocks__/Selector.mock'
 import { loggerMock } from '../../../../../../../arch/domain/logger/__mocks__/logger.mock'
 
 describe('Twitter.page', () => {
-  let document: Partial<Document>
   let twitterPage: TwitterPage
 
   beforeEach(() => {
-    document = {
-      querySelector: jest.fn(),
-      querySelectorAll: jest.fn(),
-    }
-
-    const selector = new WebSelector(document as Document)
-    twitterPage = new TwitterPage((jest.fn() as unknown) as Window, selector, loggerMock)
+    container.rebind(TYPES.Logger).toConstantValue(loggerMock)
+    container.rebind(TYPES.Window).toConstantValue(jest.fn())
+    container.rebind(TYPES.Selector).toConstantValue(selectorMock)
+    twitterPage = container.get<TwitterPage>(TYPES.WebPage)
   })
 
   it('should select all footers', async () => {
     expect.assertions(1)
-    twitterPage.load = jest.fn()
     await twitterPage.getAllFooters()
-    expect(document.querySelectorAll).toHaveBeenCalledWith('.stream-item-footer .ProfileTweet-actionList')
+    expect(selectorMock.selectAll).toHaveBeenCalledWith('.stream-item-footer .ProfileTweet-actionList')
   })
 })

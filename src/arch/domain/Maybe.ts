@@ -1,3 +1,5 @@
+import { CallbackFunction } from '../../happyshit/domain/types/main.type'
+
 export class Maybe<T> {
   public static some<T>(value: T) {
     if (!value) {
@@ -18,6 +20,10 @@ export class Maybe<T> {
 
   public getOrElse(defaultValue: T) {
     return this.value === null ? defaultValue : this.value
+  }
+
+  public getOrExecute(defaultValue: CallbackFunction<T>): T {
+    return this.value === null ? defaultValue() : this.value
   }
 
   public map<R>(f: (wrapped: T) => R): Maybe<R> {

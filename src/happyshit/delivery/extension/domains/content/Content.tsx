@@ -1,15 +1,18 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { container } from '../../../../rootContainer'
-import { DELIVERY_SERVICE_ID } from '../../deliveryServiceId'
 import { Icon } from './Icon'
 import { TwitterPage } from './pages/Twitter.page'
+import { TYPES } from '../../../../types'
 ;(async () => {
-  const twitterPage: TwitterPage = container.get(DELIVERY_SERVICE_ID.WebPage)
-  const footers = await twitterPage.getAllFooters()
+  const twitterPage: TwitterPage = container.get(TYPES.WebPage)
 
-  footers.forEach(footer => {
-    footer.id = 'happyshit'
-    render(<Icon />, footer)
+  await twitterPage.load()
+  twitterPage.observeElement('#stream-items-id', async () => {
+    const footers = await twitterPage.getAllFooters()
+    footers.forEach(footer => {
+      footer.id = 'happyshit'
+      render(<Icon />, footer)
+    })
   })
 })()
