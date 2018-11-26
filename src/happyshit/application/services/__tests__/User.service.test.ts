@@ -1,4 +1,4 @@
-import { httpMock } from '../../http/__mocks__/http.mock'
+import { httpMock } from '../../../../arch/application/http/__mocks__/http.mock'
 import { UserService } from '../User.service'
 
 describe('User.service', () => {

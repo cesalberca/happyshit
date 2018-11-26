@@ -1,5 +1,5 @@
-import cloneDepdency from 'clone'
+import cloneLib from 'clone'
 
 export function clone<T>(object: T): T {
-  return cloneDepdency(object)
+  return cloneLib(object)
 }

@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify'
-import { Maybe } from '../../../../../../arch/domain/Maybe'
+import { Maybe } from '../../../../../arch/domain/Maybe'
 import { ISelector } from './ISelector'
-import { TYPES } from '../../../../../types'
+import { TYPES } from '../../../../types'
 
 @injectable()
 export class WebSelector implements ISelector<Element> {

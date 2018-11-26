@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { container } from '../../../../rootContainer'
-import { Icon } from './Icon'
+import { container } from '../../../rootContainer'
 import { TwitterPage } from './pages/Twitter.page'
-import { TYPES } from '../../../../types'
+import { TYPES } from '../../../types'
+import { EmotionContainer } from './container/Emotion.container'
 ;(async () => {
   const twitterPage: TwitterPage = container.get(TYPES.WebPage)
 
@@ -11,8 +11,11 @@ import { TYPES } from '../../../../types'
   twitterPage.observeElement('#stream-items-id', async () => {
     const footers = await twitterPage.getAllFooters()
     footers.forEach(footer => {
-      footer.id = 'happyshit'
-      render(<Icon />, footer)
+      const element = document.createElement('div')
+      element.id = 'happyshit'
+      element.className = 'relative dib'
+      footer.append(element)
+      render(<EmotionContainer />, element)
     })
   })
 })()

@@ -1,6 +1,6 @@
 import { Id } from '../types/main.type'
 
-export class Shit {
+export class Dislike {
   private readonly _id: Id
   private readonly _date: Date
 

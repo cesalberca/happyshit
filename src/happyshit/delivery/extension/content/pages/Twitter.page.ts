@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify'
 import { WebPage } from './WebPage'
-import { TYPES } from '../../../../../types'
-import { ILogger } from '../../../../../../arch/domain/logger/ILogger'
+import { TYPES } from '../../../../types'
+import { ILogger } from '../../../../../arch/domain/logger/ILogger'
 import { ISelector } from './ISelector'
 
 @injectable()

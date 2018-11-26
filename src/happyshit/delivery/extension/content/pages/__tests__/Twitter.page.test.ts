@@ -1,8 +1,8 @@
 import { TwitterPage } from '../Twitter.page'
-import { container } from '../../../../../../rootContainer'
-import { TYPES } from '../../../../../../types'
+import { container } from '../../../../../rootContainer'
+import { TYPES } from '../../../../../types'
 import { selectorMock } from '../__mocks__/Selector.mock'
-import { loggerMock } from '../../../../../../../arch/domain/logger/__mocks__/logger.mock'
+import { loggerMock } from '../../../../../../arch/domain/logger/__mocks__/logger.mock'
 
 describe('Twitter.page', () => {
   let twitterPage: TwitterPage

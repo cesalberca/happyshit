@@ -1,5 +1,5 @@
-import { HttpModel } from '../../happyshit/application/http/Http.model'
-import { Maybe } from '../domain/Maybe'
+import { HttpModel } from '../http/Http.model'
+import { Maybe } from '../../domain/Maybe'
 
 export interface IService<T = {}, U = {}> {
   findOne(id: HttpModel.Id): Promise<Maybe<T>>

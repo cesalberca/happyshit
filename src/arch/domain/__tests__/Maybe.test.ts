@@ -6,6 +6,11 @@ describe('maybe', () => {
     expect(maybe.getOrElse('')).toEqual('test')
   })
 
+  it('should handle an undefined value', () => {
+    const maybe = Maybe.fromValue((undefined as unknown) as string)
+    expect(maybe.getOrElse('test')).toEqual('test')
+  })
+
   it('should handle an empty value', () => {
     const maybe = Maybe.fromValue('')
     expect(maybe.getOrElse('test')).toEqual('test')

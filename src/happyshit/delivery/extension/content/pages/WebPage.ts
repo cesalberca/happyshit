@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify'
 import { ISelector, Query } from './ISelector'
-import { CallbackFunction } from '../../../../../domain/types/main.type'
-import { TYPES } from '../../../../../types'
+import { CallbackFunction } from '../../../../domain/types/main.type'
+import { TYPES } from '../../../../types'
 
 @injectable()
 export abstract class WebPage {

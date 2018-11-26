@@ -1,24 +1,24 @@
 import { CallbackFunction } from '../../happyshit/domain/types/main.type'
 
 export class Maybe<T> {
-  public static some<T>(value: T) {
+  public static some<T>(value: T): Maybe<T> {
     if (!value) {
       throw Error('Provided value must not be empty')
     }
     return new Maybe(value)
   }
 
-  public static none<T>() {
+  public static none<T>(): Maybe<T> {
     return new Maybe<T>(null)
   }
 
-  public static fromValue<T>(value: T) {
+  public static fromValue<T>(value: T): Maybe<T> {
     return value ? Maybe.some(value) : Maybe.none<T>()
   }
 
   private constructor(private value: T | null) {}
 
-  public getOrElse(defaultValue: T) {
+  public getOrElse(defaultValue: T): T {
     return this.value === null ? defaultValue : this.value
   }
 

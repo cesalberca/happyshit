@@ -1,13 +1,13 @@
 import { WebPage } from '../WebPage'
-import { container } from '../../../../../../rootContainer'
-import { TYPES } from '../../../../../../types'
-import { loggerMock } from '../../../../../../../arch/domain/logger/__mocks__/logger.mock'
+import { container } from '../../../../../rootContainer'
+import { TYPES } from '../../../../../types'
+import { loggerMock } from '../../../../../../arch/domain/logger/__mocks__/logger.mock'
 import { selectorMock } from '../__mocks__/Selector.mock'
 import { ISelector } from '../ISelector'
 import { inject } from 'inversify'
 import { windowMock } from '../__mocks__/Window.mock'
-import { Maybe } from '../../../../../../../arch/domain/Maybe'
-import { noop } from '../../../../../../../arch/domain/noop'
+import { Maybe } from '../../../../../../arch/domain/Maybe'
+import { noop } from '../../../../../../arch/domain/noop'
 
 describe('WebPage', () => {
   let webPage: WebPage

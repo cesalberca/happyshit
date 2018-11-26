@@ -1,8 +1,8 @@
 import { inject } from 'inversify'
-import { Http } from '../../happyshit/application/http/Http'
-import { HttpModel } from '../../happyshit/application/http/Http.model'
-import { TYPES } from '../../happyshit/types'
-import { Maybe } from '../domain/Maybe'
+import { Http } from '../http/Http'
+import { HttpModel } from '../http/Http.model'
+import { TYPES } from '../../../happyshit/types'
+import { Maybe } from '../../domain/Maybe'
 import { IService } from './IService'
 
 export abstract class GenericService<T, U> implements IService<T, U> {
