@@ -1,8 +1,8 @@
 export const TYPES = {
-  Http: Symbol.for('Http'),
-  UserService: Symbol.for('UserService'),
+  Http: Symbol.for('HttpImpl'),
+  UserService: Symbol.for('UserImplService'),
   Console: Symbol.for('Console'),
-  Logger: Symbol.for('Logger'),
+  Logger: Symbol.for('LoggerImpl'),
   Window: Symbol.for('Window'),
   Document: Symbol.for('Document'),
   Selector: Symbol.for('Selector'),

@@ -1,4 +1,4 @@
-import { Maybe } from '../../../arch/domain/Maybe'
+import { Maybe } from '../../../arch/Maybe'
 import { Id } from '../types/main.type'
 
 export namespace User {

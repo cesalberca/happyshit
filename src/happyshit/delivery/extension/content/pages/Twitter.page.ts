@@ -1,8 +1,8 @@
 import { inject, injectable } from 'inversify'
 import { WebPage } from './WebPage'
 import { TYPES } from '../../../../types'
-import { ILogger } from '../../../../../arch/domain/logger/ILogger'
-import { ISelector } from './ISelector'
+import { Logger } from '../../../../../arch/logger/Logger'
+import { Selector } from './Selector'
 
 @injectable()
 export class TwitterPage extends WebPage {
@@ -10,8 +10,8 @@ export class TwitterPage extends WebPage {
 
   public constructor(
     @inject(TYPES.Window) protected readonly window: Window,
-    @inject(TYPES.Selector) protected readonly selector: ISelector<Element>,
-    @inject(TYPES.Logger) private readonly logger: ILogger
+    @inject(TYPES.Selector) protected readonly selector: Selector<Element>,
+    @inject(TYPES.Logger) private readonly logger: Logger
   ) {
     super(window, selector)
     this.logger = logger

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { StateContext } from '../../../application/states/StateContext'
+import { StateContext } from '../../../domain/states/StateContext'
+import { bindDependencies } from '../../../bindDependencies'
+import { TYPES } from '../../../types'
 
-export function Popup() {
-  const [stateContext, setStateContext] = useState(StateContext.instance)
+const PopupComponent = (_stateContext: StateContext) => {
+  const [stateContext, setStateContext] = useState(_stateContext)
 
   return (
     <div>
@@ -35,3 +37,5 @@ export function Popup() {
     </div>
   )
 }
+
+export const Popup = bindDependencies(PopupComponent, [TYPES.State]) as React.FunctionComponent<{}>

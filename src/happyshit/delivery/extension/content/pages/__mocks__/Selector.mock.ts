@@ -1,6 +1,6 @@
-import { ISelector } from '../ISelector'
+import { Selector } from '../Selector'
 
-export const selectorMock: ISelector = {
+export const selectorMock: Selector = {
   select: jest.fn(),
   selectAll: jest.fn(),
 }
