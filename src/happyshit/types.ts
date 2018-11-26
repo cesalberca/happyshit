@@ -8,4 +8,5 @@ export const TYPES = {
   Selector: Symbol.for('Selector'),
   WebPage: Symbol.for('WebPage'),
   MutationObserver: Symbol.for('MutationObserver'),
+  State: Symbol.for('State'),
 }

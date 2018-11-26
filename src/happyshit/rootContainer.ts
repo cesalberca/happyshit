@@ -13,9 +13,14 @@ import { WebPage } from './delivery/extension/content/pages/WebPage'
 import { WebSelector } from './delivery/extension/content/pages/WebSelector'
 import { Logger } from '../arch/domain/logger/Logger'
 import { ILogger } from '../arch/domain/logger/ILogger'
+import { StateContext } from './application/states/StateContext'
 
 const container = new Container()
 
+container
+  .bind<StateContext>(TYPES.State)
+  .to(StateContext)
+  .inSingletonScope()
 container
   .bind<IHttp>(TYPES.Http)
   .to(Http)
