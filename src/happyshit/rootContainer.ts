@@ -12,8 +12,9 @@ import { TwitterPage } from './delivery/extension/content/pages/Twitter.page'
 import { WebPage } from './delivery/extension/content/pages/WebPage'
 import { WebSelector } from './delivery/extension/content/pages/WebSelector'
 import { LoggerImpl } from '../arch/logger/LoggerImpl'
+import { StateContext } from '../arch/delivery/states/StateContext'
 import { Logger } from '../arch/logger/Logger'
-import { StateContext } from './domain/states/StateContext'
+import { StateStrategy } from './delivery/ui/utils/StateStrategy'
 
 const container = new Container()
 
@@ -30,8 +31,8 @@ container
   .to(UserImplService)
   .inSingletonScope()
 container
-  .bind<LoggerImpl>(TYPES.Logger)
-  .to(Logger)
+  .bind<Logger>(TYPES.Logger)
+  .to(LoggerImpl)
   .inSingletonScope()
 container.bind<Console>(TYPES.Console).toConstantValue(console)
 
@@ -45,5 +46,6 @@ container
   .bind<Selector>(TYPES.Selector)
   .to(WebSelector)
   .inSingletonScope()
+container.bind<StateStrategy>(TYPES.StateStrategy).to(StateStrategy)
 
 export { container }

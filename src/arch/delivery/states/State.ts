@@ -1,3 +1,3 @@
 export interface State {
-  draw: () => void
+  render: () => void
 }

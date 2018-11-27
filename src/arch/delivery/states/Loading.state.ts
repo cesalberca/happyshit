@@ -1,12 +1,15 @@
 import { State } from './State'
 import { StateContext } from './StateContext'
 import { inject } from 'inversify'
-import { TYPES } from '../../types'
+import { TYPES } from '../../../happyshit/types'
 
-export class ErrorState implements State {
+export class LoadingState implements State {
   public constructor(@inject(TYPES.State) private readonly context: StateContext) {
     this.context = context
   }
 
-  public draw() {}
+  public render() {
+    this.context.ui.block = true
+    this.context.ui.message = 'Loading'
+  }
 }

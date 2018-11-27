@@ -1,3 +1,4 @@
+import 'tachyons'
 import React from 'react'
 import { render } from 'react-dom'
 import { container } from '../../../rootContainer'
@@ -13,7 +14,6 @@ import { EmotionContainer } from './container/Emotion.container'
     footers.forEach(footer => {
       const element = document.createElement('div')
       element.id = 'happyshit'
-      element.className = 'relative dib'
       footer.append(element)
       render(<EmotionContainer />, element)
     })
