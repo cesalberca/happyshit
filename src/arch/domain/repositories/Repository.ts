@@ -1,4 +1,4 @@
-import { Maybe } from '../../Maybe'
+import { Maybe } from '../../utils/Maybe'
 import { Id } from '../types/main.type'
 
 export interface Repository<T = {}, U = {}> {

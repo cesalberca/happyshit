@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StateContext } from '../../../../arch/delivery/states/StateContext'
-import { bindDependencies } from '../../../bindDependencies'
-import { TYPES } from '../../../types'
+import { bindDependencies } from '../../../../arch/bindDependencies'
+import { TYPES } from '../../../../arch/types'
 import { IStrategy, StateStrategy } from '../../ui/utils/StateStrategy'
 import { State } from '../../../../arch/delivery/states/State'
 

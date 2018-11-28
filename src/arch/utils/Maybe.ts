@@ -1,4 +1,4 @@
-import { CallbackFunction } from './domain/types/main.type'
+import { CallbackFunction } from '../domain/types/main.type'
 
 export class Maybe<T> {
   public static some<T>(value: T): Maybe<T> {

@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify'
-import { Maybe } from '../../../../../arch/Maybe'
+import { Maybe } from '../../../../../arch/utils/Maybe'
 import { Selector } from './Selector'
-import { TYPES } from '../../../../types'
+import { TYPES } from '../../../../../arch/types'
 
 @injectable()
 export class WebSelector implements Selector<Element> {

@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify'
 import { WebPage } from './WebPage'
-import { TYPES } from '../../../../types'
+import { TYPES } from '../../../../../arch/types'
 import { Logger } from '../../../../../arch/logger/Logger'
 import { Selector } from './Selector'
 

@@ -1,6 +1,6 @@
 import { TwitterPage } from '../Twitter.page'
-import { container } from '../../../../../rootContainer'
-import { TYPES } from '../../../../../types'
+import { container } from '../../../../../../arch/rootContainer'
+import { TYPES } from '../../../../../../arch/types'
 import { selectorMock } from '../__mocks__/Selector.mock'
 import { loggerMock } from '../../../../../../arch/logger/__mocks__/logger.mock'
 

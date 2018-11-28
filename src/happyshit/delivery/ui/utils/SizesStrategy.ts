@@ -1,5 +1,5 @@
 import { ESizes } from '../constants/ESizes'
-import { Maybe } from '../../../../arch/Maybe'
+import { Maybe } from '../../../../arch/utils/Maybe'
 
 export interface IStrategy<T = {}, U = {}> {
   check: (predicate: T) => boolean

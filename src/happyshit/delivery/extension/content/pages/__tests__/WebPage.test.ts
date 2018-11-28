@@ -1,13 +1,13 @@
 import { WebPage } from '../WebPage'
-import { container } from '../../../../../rootContainer'
-import { TYPES } from '../../../../../types'
+import { container } from '../../../../../../arch/rootContainer'
+import { TYPES } from '../../../../../../arch/types'
 import { loggerMock } from '../../../../../../arch/logger/__mocks__/logger.mock'
 import { selectorMock } from '../__mocks__/Selector.mock'
 import { Selector } from '../Selector'
 import { inject } from 'inversify'
 import { windowMock } from '../__mocks__/Window.mock'
-import { Maybe } from '../../../../../../arch/Maybe'
-import { noop } from '../../../../../../arch/noop'
+import { Maybe } from '../../../../../../arch/utils/Maybe'
+import { noop } from '../../../../../../arch/utils/noop'
 
 describe('WebPage', () => {
   let webPage: WebPage

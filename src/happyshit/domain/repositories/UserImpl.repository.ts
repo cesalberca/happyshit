@@ -2,7 +2,7 @@ import { inject, injectable } from 'inversify'
 import { HttpRepository } from '../../../arch/domain/repositories/http/Http.repository'
 import { User } from '../models/User.model'
 import { HttpModel } from '../../../arch/domain/repositories/http/Http.model'
-import { TYPES } from '../../types'
+import { TYPES } from '../../../arch/types'
 import { UserRepository } from './User.repository'
 import { Http } from '../../../arch/domain/repositories/http/Http'
 

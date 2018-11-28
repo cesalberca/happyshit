@@ -1,7 +1,7 @@
 import { Console } from './Console'
 import { Logger, Message } from './Logger'
 import { inject, injectable } from 'inversify'
-import { TYPES } from '../../happyshit/types'
+import { TYPES } from '../types'
 
 @injectable()
 export class LoggerImpl implements Logger {

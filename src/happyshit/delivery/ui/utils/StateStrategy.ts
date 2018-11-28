@@ -1,4 +1,4 @@
-import { Maybe } from '../../../../arch/Maybe'
+import { Maybe } from '../../../../arch/utils/Maybe'
 import { injectable } from 'inversify'
 import { State } from '../../../../arch/delivery/states/State'
 

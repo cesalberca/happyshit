@@ -1,9 +1,9 @@
 import 'tachyons'
 import React from 'react'
 import { render } from 'react-dom'
-import { container } from '../../../rootContainer'
+import { container } from '../../../../arch/rootContainer'
 import { TwitterPage } from './pages/Twitter.page'
-import { TYPES } from '../../../types'
+import { TYPES } from '../../../../arch/types'
 import { EmotionContainer } from './container/Emotion.container'
 ;(async () => {
   const twitterPage: TwitterPage = container.get(TYPES.WebPage)

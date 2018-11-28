@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify'
 import { Selector, Query } from './Selector'
 import { CallbackFunction, Empty } from '../../../../../arch/domain/types/main.type'
-import { TYPES } from '../../../../types'
+import { TYPES } from '../../../../../arch/types'
 
 @injectable()
 export abstract class WebPage {

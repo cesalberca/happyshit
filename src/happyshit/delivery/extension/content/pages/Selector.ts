@@ -1,4 +1,4 @@
-import { Maybe } from '../../../../../arch/Maybe'
+import { Maybe } from '../../../../../arch/utils/Maybe'
 
 export type Query = string
 
