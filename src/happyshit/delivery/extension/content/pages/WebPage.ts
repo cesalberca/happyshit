@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify'
 import { Selector, Query } from './Selector'
-import { CallbackFunction } from '../../../../domain/types/main.type'
+import { CallbackFunction, Empty } from '../../../../../arch/domain/types/main.type'
 import { TYPES } from '../../../../types'
 
 @injectable()
@@ -13,7 +13,7 @@ export abstract class WebPage {
     this.selector = selector
   }
 
-  public async load() {
+  public async load(): Promise<Empty> {
     return new Promise(resolve => {
       this.window.addEventListener('load', () => {
         resolve()
@@ -21,7 +21,7 @@ export abstract class WebPage {
     })
   }
 
-  public observeElement(query: Query, callback: CallbackFunction, options = { childList: true }) {
+  public observeElement(query: Query, callback: CallbackFunction, options = { childList: true }): MutationObserver {
     const element: Node = this.selector.select(query).getOrExecute(() => {
       throw new Error('Node not found')
     })

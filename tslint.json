@@ -9,7 +9,8 @@
     "object-literal-sort-keys": false,
     "max-classes-per-file": false,
     "no-empty": false,
-    "ordered-imports": false
+    "ordered-imports": false,
+    "typedef": [true, "call-signature"]
   },
   "rulesDirectory": []
 }

@@ -15,7 +15,7 @@ export class StateStrategy {
 
   public getDefaultStrategy(): TStateStrategy {
     return {
-      check() {
+      check(): boolean {
         return true
       },
       execute: () => '',
@@ -28,7 +28,7 @@ export class StateStrategy {
     return strategy.execute()
   }
 
-  public addStrategy(strategy: TStateStrategy) {
+  public addStrategy(strategy: TStateStrategy): void {
     this.strategies.push(strategy)
   }
 

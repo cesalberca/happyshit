@@ -1,5 +1,5 @@
 import { Maybe } from '../../../arch/Maybe'
-import { Id } from '../types/main.type'
+import { Id } from '../../../arch/domain/types/main.type'
 
 export namespace User {
   export interface Base {

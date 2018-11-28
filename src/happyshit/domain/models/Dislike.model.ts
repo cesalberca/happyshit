@@ -1,4 +1,4 @@
-import { Id } from '../types/main.type'
+import { Id } from '../../../arch/domain/types/main.type'
 
 export class Dislike {
   private readonly _id: Id

@@ -8,7 +8,7 @@ export class LoadingState implements State {
     this.context = context
   }
 
-  public render() {
+  public render(): void {
     this.context.ui.block = true
     this.context.ui.message = 'Loading'
   }

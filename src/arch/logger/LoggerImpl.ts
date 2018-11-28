@@ -9,7 +9,7 @@ export class LoggerImpl implements Logger {
     this.console = console
   }
 
-  public log(message: Message) {
+  public log(message: Message): void {
     this.console.log(message)
   }
 }

@@ -1,8 +1,8 @@
 export const TYPES = {
-  Http: Symbol.for('HttpImpl'),
-  UserService: Symbol.for('UserImplService'),
+  Http: Symbol.for('Http'),
+  UserRepository: Symbol.for('UserRepository'),
   Console: Symbol.for('Console'),
-  Logger: Symbol.for('LoggerImpl'),
+  Logger: Symbol.for('Logger'),
   Window: Symbol.for('Window'),
   Document: Symbol.for('Document'),
   Selector: Symbol.for('Selector'),
@@ -10,4 +10,5 @@ export const TYPES = {
   MutationObserver: Symbol.for('MutationObserver'),
   State: Symbol.for('State'),
   StateStrategy: Symbol.for('StateStrategy'),
+  Database: Symbol.for('Database'),
 }

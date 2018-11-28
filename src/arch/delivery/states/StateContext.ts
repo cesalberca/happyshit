@@ -21,7 +21,7 @@ export class StateContext {
     this._state.render()
   }
 
-  public get state() {
+  public get state(): State {
     return this._state
   }
 

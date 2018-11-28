@@ -1,4 +1,4 @@
-import { clone } from '../../../clone'
+import { clone } from '../../../../clone'
 import { connectorMock } from '../__mocks__/connector.mock'
 import { HttpImpl } from '../HttpImpl'
 import { Connector } from '../Connector'

@@ -13,7 +13,7 @@ export class SizesStrategy {
 
   public getDefaultStrategy(): TSizeStrategy {
     return {
-      check(predicate: ESizes) {
+      check(predicate: ESizes): boolean {
         return typeof predicate === 'string'
       },
       execute: () => '1rem',
@@ -26,7 +26,7 @@ export class SizesStrategy {
     return strategy.execute()
   }
 
-  public addStrategy(strategy: TSizeStrategy) {
+  public addStrategy(strategy: TSizeStrategy): void {
     this.strategies.push(strategy)
   }
 

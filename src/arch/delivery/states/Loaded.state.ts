@@ -8,7 +8,7 @@ export class LoadedState implements State {
     this.context = context
   }
 
-  public render() {
+  public render(): void {
     this.context.ui.block = false
     this.context.ui.message = ''
   }

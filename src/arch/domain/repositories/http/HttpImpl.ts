@@ -1,6 +1,7 @@
 import { injectable } from 'inversify'
 import { Connector } from './Connector'
 import { Http } from './Http'
+import { HttpModel } from './Http.model'
 
 @injectable()
 export class HttpImpl<T = {}, U = {}> implements Http<T, U> {
@@ -8,12 +9,12 @@ export class HttpImpl<T = {}, U = {}> implements Http<T, U> {
     this.connector = connector
   }
 
-  public async get(url: string) {
+  public async get(url: string): Promise<T | T[]> {
     const response = await this.connector.connect(url)
     return response.json()
   }
 
-  public async post(url: string, payload: U) {
+  public async post(url: string, payload: U): Promise<HttpModel.Response> {
     const response = await this.connector.connect(
       url,
       {
@@ -26,7 +27,7 @@ export class HttpImpl<T = {}, U = {}> implements Http<T, U> {
     }
   }
 
-  public async put(url: string, payload: U) {
+  public async put(url: string, payload: U): Promise<HttpModel.Response> {
     const response = await this.connector.connect(
       url,
       {
