@@ -11,4 +11,5 @@ export const TYPES = {
   State: Symbol.for('State'),
   StateStrategy: Symbol.for('StateStrategy'),
   Database: Symbol.for('Database'),
+  SizesStrategy: Symbol.for('SizesStrategy'),
 }

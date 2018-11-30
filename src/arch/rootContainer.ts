@@ -16,8 +16,9 @@ import { WebSelector } from '../happyshit/delivery/extension/content/pages/WebSe
 import { LoggerImpl } from './logger/LoggerImpl'
 import { StateContext } from './delivery/states/StateContext'
 import { Logger } from './logger/Logger'
-import { StateStrategy } from '../happyshit/delivery/ui/utils/StateStrategy'
+import { StateStrategy } from '../happyshit/delivery/ui/states/StateStrategy'
 import Database = firebase.database.Database
+import { SizesStrategy } from '../happyshit/delivery/ui/sizes/SizesStrategy'
 
 const container = new Container()
 
@@ -48,6 +49,10 @@ container
 container
   .bind<Selector>(TYPES.Selector)
   .to(WebSelector)
+  .inSingletonScope()
+container
+  .bind<SizesStrategy>(TYPES.SizesStrategy)
+  .to(SizesStrategy)
   .inSingletonScope()
 container.bind<StateStrategy>(TYPES.StateStrategy).to(StateStrategy)
 

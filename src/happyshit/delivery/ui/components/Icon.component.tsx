@@ -1,11 +1,22 @@
 import React from 'react'
-import { ESizes } from '../constants/ESizes'
+import { Sizes } from '../sizes/Sizes'
+import { SizesStrategy } from '../sizes/SizesStrategy'
+import { ElementTypes } from '../elements/ElementTypes'
+import { bindDependencies } from '../../../../arch/bindDependencies'
+import { TYPES } from '../../../../arch/types'
+import { ReactProps } from '../types'
 
-interface Props {
+interface Props extends ReactProps {
   onClick: (event: React.SyntheticEvent) => void
-  size: ESizes
+  size: Sizes
 }
 
-export const Icon: React.FunctionComponent<Props> = ({ onClick, children }) => {
-  return <button onClick={e => onClick(e)}>{children}</button>
+const IconComponent = (sizesStrategy: SizesStrategy, { onClick, size, children }: Props) => {
+  return (
+    <button onClick={e => onClick(e)} className={sizesStrategy.getSizeStyles(size, ElementTypes.ICON)}>
+      {children}
+    </button>
+  )
 }
+
+export const Icon = bindDependencies(IconComponent, [TYPES.SizesStrategy]) as React.FunctionComponent<Props>
