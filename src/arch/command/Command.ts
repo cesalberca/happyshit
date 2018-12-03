@@ -1,3 +1,3 @@
-export interface Command {
-  execute: () => Promise<boolean>
+export interface Command<T = {}> {
+  execute: () => Promise<T>
 }

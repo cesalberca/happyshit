@@ -1,7 +1,7 @@
 export const TYPES = {
   Http: Symbol.for('Http'),
-  UserRepository: Symbol.for('UserRepository'),
   Console: Symbol.for('Console'),
+  Connector: Symbol.for('Connector'),
   Logger: Symbol.for('Logger'),
   Window: Symbol.for('Window'),
   Document: Symbol.for('Document'),
@@ -12,4 +12,7 @@ export const TYPES = {
   StateStrategy: Symbol.for('StateStrategy'),
   Database: Symbol.for('Database'),
   SizesStrategy: Symbol.for('SizesStrategy'),
+  EmotionsRepository: Symbol.for('EmotionsRepository'),
+  EmotionsCanBeUpdatedUseCase: Symbol.for('EmotionsCanBeUpdatedUseCase'),
+  EmotionsListUseCase: Symbol.for('EmotionsListUseCase'),
 }
