@@ -2,7 +2,7 @@ import { Command } from '../../../../arch/command/Command'
 import { inject, injectable } from 'inversify'
 import { TYPES } from '../../../../arch/types'
 import { Emotion } from '../../entities/Emotion.entity'
-import { EmotionsRepository } from '../../repositories/EmotionsRepository'
+import { EmotionsRepository } from '../../repositories/Emotions.repository'
 
 @injectable()
 export class EmotionsListUseCase implements Command<Emotion[]> {

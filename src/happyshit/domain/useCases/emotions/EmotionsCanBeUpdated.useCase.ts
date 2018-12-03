@@ -3,7 +3,7 @@ import { inject, injectable } from 'inversify'
 import { TYPES } from '../../../../arch/types'
 import { Emotion } from '../../entities/Emotion.entity'
 import { Maybe } from '../../../../arch/utils/Maybe'
-import { EmotionsRepository } from '../../repositories/EmotionsRepository'
+import { EmotionsRepository } from '../../repositories/Emotions.repository'
 
 @injectable()
 export class EmotionsCanBeUpdatedUseCase implements Command<Emotion> {

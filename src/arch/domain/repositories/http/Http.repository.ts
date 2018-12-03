@@ -1,17 +1,11 @@
-import { inject, injectable } from 'inversify'
 import { HttpModel } from './Http.model'
-import { TYPES } from '../../../types'
 import { Maybe } from '../../../utils/Maybe'
 import { Repository } from '../Repository'
 import { Id } from '../../types/main.type'
 import { Http } from './Http'
 
-@injectable()
 export abstract class HttpRepository<T = {}, U = {}> implements Repository<T, U> {
-  protected constructor(
-    @inject(TYPES.Http) protected readonly http: Http<T, U>,
-    protected readonly url: HttpModel.Url
-  ) {
+  protected constructor(protected readonly http: Http<T, U>, protected readonly url: HttpModel.Url) {
     this.http = http
     this.url = url
   }
