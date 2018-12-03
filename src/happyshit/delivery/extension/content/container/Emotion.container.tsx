@@ -17,9 +17,8 @@ const Emotion = (
   const emotionsListUseCase = useProxy<EmotionsListUseCase>(_emotionsListUseCase)
   const [emotions, setEmotions] = useState<EmotionEntity[]>([])
 
-  useEffect(async () => {
-    const emotionsList = await emotionsListUseCase.execute()
-    setEmotions(emotionsList)
+  useEffect(() => {
+    emotionsListUseCase.execute().then(emotionsList => setEmotions(emotionsList))
   }, [])
 
   return (
