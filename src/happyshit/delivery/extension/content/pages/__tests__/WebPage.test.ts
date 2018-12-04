@@ -25,12 +25,13 @@ describe('WebPage', () => {
     container.rebind(TYPES.Logger).toConstantValue(loggerMock)
     container.rebind(TYPES.Window).toConstantValue(windowMock)
     container.rebind(TYPES.Selector).toConstantValue(selectorMock)
-    container.rebind(TYPES.WebPage).to(ConcreteWebPage)
-    webPage = container.get<WebPage>(TYPES.WebPage)
+    container.rebind(TYPES.TwitterPage).to(ConcreteWebPage)
+    webPage = container.get(TYPES.TwitterPage)
   })
 
-  it('should wait for page to load', () => {
-    webPage.load()
+  it('should wait for page to load', async () => {
+    expect.assertions(1)
+    await webPage.load()
     expect(windowMock.addEventListener).toHaveBeenCalledWith('load', expect.any(Function))
   })
 

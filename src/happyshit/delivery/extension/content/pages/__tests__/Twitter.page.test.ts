@@ -11,7 +11,7 @@ describe('Twitter.page', () => {
     container.rebind(TYPES.Logger).toConstantValue(loggerMock)
     container.rebind(TYPES.Window).toConstantValue(jest.fn())
     container.rebind(TYPES.Selector).toConstantValue(selectorMock)
-    twitterPage = container.get<TwitterPage>(TYPES.WebPage)
+    twitterPage = container.get<TwitterPage>(TYPES.TwitterPage)
   })
 
   it('should select all footers', async () => {

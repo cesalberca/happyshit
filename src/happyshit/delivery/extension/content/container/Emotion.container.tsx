@@ -5,9 +5,8 @@ import { EmotionsCanBeUpdatedUseCase } from '../../../../domain/useCases/emotion
 import { TYPES } from '../../../../../arch/types'
 import { useProxy } from '../../../../../arch/delivery/hooks/useProxy'
 import { Emotion as EmotionEntity } from '../../../../domain/entities/Emotion.entity'
-import { EmotionType } from '../../../../domain/valueObjects/EmotionType'
-import { Count } from '../../../../domain/valueObjects/Count'
 import { EmotionsListUseCase } from '../../../../domain/useCases/emotions/EmotionsList.useCase'
+import { counter, emotion, wrapper } from './Emotion.container.css'
 
 const Emotion = (
   _emotionsCanBeUpdatedUseCase: EmotionsCanBeUpdatedUseCase,
@@ -22,14 +21,15 @@ const Emotion = (
   }, [])
 
   return (
-    <>
+    <div className={wrapper}>
       <Dislike
-        onClick={() =>
-          emotionsCanBeUpdatedUseCase.setEmotion(new EmotionEntity(1, EmotionType.DISLIKE, new Count(1))).execute()
-        }
+        classNames={[emotion]}
+        onClick={() => {
+          emotionsCanBeUpdatedUseCase.setEmotion(emotions[0]).execute()
+        }}
       />
-      <span className="absolute f3 top-0">{emotions[0].count.value}</span>
-    </>
+      <span className={counter}>{emotions.map(e => e.count.value)}</span>
+    </div>
   )
 }
 

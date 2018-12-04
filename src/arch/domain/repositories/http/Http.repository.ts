@@ -10,9 +10,9 @@ export abstract class HttpRepository<T = {}, U = {}> implements Repository<T, U>
     this.url = url
   }
 
-  public async create(id: Id, payload: U): Promise<boolean> {
+  public async create(payload: U): Promise<boolean> {
     try {
-      await this.http.post(this.getSingleResource(id), payload)
+      await this.http.post(this.getMultipleResources(), payload)
       return true
     } catch (e) {
       return false

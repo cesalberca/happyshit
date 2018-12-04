@@ -27,13 +27,13 @@ describe('Http.repository', () => {
 
   it('should create a resource', async () => {
     expect.assertions(1)
-    await repository.create(1, { bar: 'bar' })
-    expect(httpMock.post).toHaveBeenCalledWith('foo/1', { bar: 'bar' })
+    await repository.create({ bar: 'bar' })
+    expect(httpMock.post).toHaveBeenCalledWith('foo', { bar: 'bar' })
   })
 
   it('should get a resource', async () => {
     expect.assertions(1)
-    await repository.findOne(1)
+    await repository.findOne('1')
     expect(httpMock.get).toHaveBeenCalledWith('foo/1')
   })
 
@@ -45,7 +45,7 @@ describe('Http.repository', () => {
 
   it('should update a resource', async () => {
     expect.assertions(1)
-    await repository.update(1, { bar: 'bar' })
+    await repository.update('1', { bar: 'bar' })
     expect(httpMock.put).toHaveBeenCalledWith('foo/1', { bar: 'bar' })
   })
 

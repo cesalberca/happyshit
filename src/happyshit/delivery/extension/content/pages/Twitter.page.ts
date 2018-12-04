@@ -17,7 +17,7 @@ export class TwitterPage extends WebPage {
     this.logger = logger
   }
 
-  public async getAllFooters(): Promise<Element[]> {
+  public getAllFooters(): Element[] {
     this.logger.log('Returning found footers')
     return this.selector.selectAll(this.footerIcons)
   }

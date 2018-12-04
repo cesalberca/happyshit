@@ -1,4 +1,4 @@
-import 'reflect-metadata'
+import * as firebase from 'firebase'
 import 'firebase/firestore'
 import { Container } from 'inversify'
 import getDecorators from 'inversify-inject-decorators'
@@ -9,7 +9,6 @@ import { HttpImpl } from './domain/repositories/http/HttpImpl'
 import { Http } from './domain/repositories/http/Http'
 import { Selector } from '../happyshit/delivery/extension/content/pages/Selector'
 import { TwitterPage } from '../happyshit/delivery/extension/content/pages/Twitter.page'
-import { WebPage } from '../happyshit/delivery/extension/content/pages/WebPage'
 import { WebSelector } from '../happyshit/delivery/extension/content/pages/WebSelector'
 import { LoggerImpl } from './logger/LoggerImpl'
 import { StateContext } from './delivery/states/StateContext'
@@ -21,6 +20,7 @@ import { EmotionsRepository } from '../happyshit/domain/repositories/Emotions.re
 import { Connector } from './domain/repositories/http/Connector'
 import { EmotionsFirebaseRepository } from '../happyshit/domain/repositories/EmotionsFirebase.repository'
 import { EmotionsCanBeUpdatedUseCase } from '../happyshit/domain/useCases/emotions/EmotionsCanBeUpdated.useCase'
+import { Database } from './domain/repositories/Database'
 
 const container = new Container()
 
@@ -48,7 +48,7 @@ container
   .to(WebSelector)
   .inSingletonScope()
 container
-  .bind<WebPage>(TYPES.WebPage)
+  .bind<TwitterPage>(TYPES.TwitterPage)
   .to(TwitterPage)
   .inSingletonScope()
 
@@ -64,6 +64,24 @@ container
   .bind<EmotionsCanBeUpdatedUseCase>(TYPES.EmotionsCanBeUpdatedUseCase)
   .to(EmotionsCanBeUpdatedUseCase)
   .inSingletonScope()
+
+const config = {
+  apiKey: 'AIzaSyB7BGeDe42SJFkKKTW8HQTtcb2IMybAiU0',
+  authDomain: 'happyshit-c187e.firebaseapp.com',
+  databaseURL: 'https://happyshit-c187e.firebaseio.com',
+  projectId: 'happyshit-c187e',
+  storageBucket: 'happyshit-c187e.appspot.com',
+  messagingSenderId: '435079812121',
+}
+
+firebase.initializeApp(config)
+const database = firebase.firestore()
+
+database.settings({
+  timestampsInSnapshots: true,
+})
+
+container.bind<Database>(TYPES.Database).toConstantValue(database)
 
 const { lazyInject } = getDecorators(container)
 export { container, lazyInject }

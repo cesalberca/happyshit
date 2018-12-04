@@ -6,7 +6,7 @@ export const TYPES = {
   Window: Symbol.for('Window'),
   Document: Symbol.for('Document'),
   Selector: Symbol.for('Selector'),
-  WebPage: Symbol.for('WebPage'),
+  TwitterPage: Symbol.for('TwitterPage'),
   MutationObserver: Symbol.for('MutationObserver'),
   State: Symbol.for('State'),
   StateStrategy: Symbol.for('StateStrategy'),

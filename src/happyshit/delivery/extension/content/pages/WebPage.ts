@@ -25,6 +25,7 @@ export abstract class WebPage {
     const element: Node = this.selector.select(query).getOrExecute(() => {
       throw new Error('Node not found')
     })
+    callback()
     const observer = new MutationObserver(callback)
     observer.observe(element, options)
     return observer
