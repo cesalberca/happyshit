@@ -1,7 +1,6 @@
-import * as firebase from 'firebase'
+import * as firebase from 'firebase/app'
 import 'firebase/firestore'
 import { Container } from 'inversify'
-import getDecorators from 'inversify-inject-decorators'
 
 import { Console } from './logger/Console'
 import { TYPES } from './types'
@@ -33,7 +32,7 @@ container
   .bind<Logger>(TYPES.Logger)
   .to(LoggerImpl)
   .inSingletonScope()
-container.bind<Console>(TYPES.Console).toConstantValue(console)
+container.bind<Console>(TYPES.Console).toConstantValue(window.console)
 
 container.bind<Window>(TYPES.Window).toConstantValue(window)
 container.bind<Document>(TYPES.Document).toConstantValue(window.document)
@@ -83,5 +82,4 @@ database.settings({
 
 container.bind<Database>(TYPES.Database).toConstantValue(database)
 
-const { lazyInject } = getDecorators(container)
-export { container, lazyInject }
+export { container }
