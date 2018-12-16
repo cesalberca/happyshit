@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Dislike } from '../components/Dislike.component'
 import { bindDependencies } from '../../../../../arch/bindDependencies'
 import { EmotionsCanBeUpdatedUseCase } from '../../../../domain/useCases/emotions/EmotionsCanBeUpdated.useCase'
 import { TYPES } from '../../../../../arch/types'
 import { useProxy } from '../../../../../arch/delivery/hooks/useProxy'
 import { Emotion as EmotionEntity } from '../../../../domain/entities/Emotion.entity'
-import { EmotionsListUseCase } from '../../../../domain/useCases/emotions/EmotionsList.useCase'
 import { counter, emotion, wrapper } from './Emotion.container.css'
 
-const Emotion = (
-  _emotionsCanBeUpdatedUseCase: EmotionsCanBeUpdatedUseCase,
-  _emotionsListUseCase: EmotionsListUseCase
-) => {
+const Emotion = (_emotionsCanBeUpdatedUseCase: EmotionsCanBeUpdatedUseCase) => {
   const emotionsCanBeUpdatedUseCase = useProxy<EmotionsCanBeUpdatedUseCase>(_emotionsCanBeUpdatedUseCase)
-  const emotionsListUseCase = useProxy<EmotionsListUseCase>(_emotionsListUseCase)
-  const [emotions, setEmotions] = useState<EmotionEntity[]>([])
+  const [emotions] = useState<EmotionEntity[]>([])
 
-  useEffect(() => {
+  /*useEffect(() => {
     emotionsListUseCase.execute().then(emotionsList => setEmotions(emotionsList))
-  }, [])
+  }, [])*/
 
   return (
     <div className={wrapper}>
@@ -35,5 +30,4 @@ const Emotion = (
 
 export const EmotionContainer = bindDependencies(Emotion, [
   TYPES.EmotionsCanBeUpdatedUseCase,
-  TYPES.EmotionsListUseCase,
 ]) as React.FunctionComponent<{}>

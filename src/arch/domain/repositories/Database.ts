@@ -1,1 +1,4 @@
-export type Database = any
+import firebase from 'firebase'
+import FirebaseFirestore = firebase.firestore.Firestore
+
+export type Database = FirebaseFirestore

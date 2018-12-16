@@ -1,7 +1,5 @@
 export const TYPES = {
-  Http: Symbol.for('Http'),
   Console: Symbol.for('Console'),
-  Connector: Symbol.for('Connector'),
   Logger: Symbol.for('Logger'),
   Window: Symbol.for('Window'),
   Document: Symbol.for('Document'),

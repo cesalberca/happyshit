@@ -9,9 +9,7 @@ import { EmotionsRepository } from '../../repositories/Emotions.repository'
 export class EmotionsCanBeUpdatedUseCase implements Command<Emotion> {
   private emotion: Maybe<Emotion> = Maybe.none()
 
-  constructor(@inject(TYPES.EmotionsRepository) private readonly emotionsRepository: EmotionsRepository) {
-    this.emotionsRepository = emotionsRepository
-  }
+  constructor(@inject(TYPES.EmotionsRepository) private readonly emotionsRepository: EmotionsRepository) {}
 
   public setEmotion(emotion: Emotion): EmotionsCanBeUpdatedUseCase {
     this.emotion = Maybe.fromValue(emotion)

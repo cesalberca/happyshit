@@ -1,14 +1,10 @@
-import { inject, injectable } from 'inversify'
-import { Selector, Query } from './Selector'
+import { Query, Selector } from './Selector'
 import { CallbackFunction, Empty } from '../../../../../arch/domain/types/main.type'
-import { TYPES } from '../../../../../arch/types'
+import { injectable } from 'inversify'
 
 @injectable()
-export abstract class WebPage {
-  protected constructor(
-    @inject(TYPES.Window) protected readonly window: Window,
-    @inject(TYPES.Selector) protected readonly selector: Selector<Node>
-  ) {
+export class WebPage {
+  protected constructor(protected readonly window: Window, protected readonly selector: Selector<Node>) {
     this.window = window
     this.selector = selector
   }
