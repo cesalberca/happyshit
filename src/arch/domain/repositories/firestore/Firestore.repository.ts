@@ -24,7 +24,7 @@ export class FirestoreRepository<T = {}, U = {}> implements Repository<T, U> {
   public async findAll(): Promise<T[]> {
     const data: T[] = []
     const collection = await this.database.collection(this._collection).get()
-    collection.forEach((document: any) => {
+    collection.forEach(document => {
       data.push(document.data() as T)
     })
 

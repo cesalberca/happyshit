@@ -27,7 +27,7 @@ export class EmotionsCanBeUpdatedUseCase implements Command<Emotion> {
       throw new Error('Emotion could not be found')
     })
 
-    const updatedEmotion = foundEmotion.increment()
+    const updatedEmotion = foundEmotion.react()
     await this.emotionsRepository.update(emotionToBeUpdated.id, updatedEmotion)
     return (await this.emotionsRepository.findOne(emotionToBeUpdated.id)).getOrExecute(() => {
       throw new Error('Updated emotion could not be found')

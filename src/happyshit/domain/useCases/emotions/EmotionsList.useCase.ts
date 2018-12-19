@@ -6,9 +6,7 @@ import { EmotionsRepository } from '../../repositories/Emotions.repository'
 
 @injectable()
 export class EmotionsListUseCase implements Command<Emotion[]> {
-  constructor(@inject(TYPES.EmotionsRepository) private readonly emotionsRepository: EmotionsRepository) {
-    this.emotionsRepository = emotionsRepository
-  }
+  constructor(@inject(TYPES.EmotionsRepository) private readonly emotionsRepository: EmotionsRepository) {}
 
   public async execute(): Promise<Emotion[]> {
     return this.emotionsRepository.findAll()

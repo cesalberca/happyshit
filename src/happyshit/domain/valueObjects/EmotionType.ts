@@ -1,3 +1,3 @@
 export enum EmotionType {
-  DISLIKE = 'dislike',
+  DISLIKE = 0,
 }
